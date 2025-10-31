@@ -1,0 +1,275 @@
+/* style.css — unified styles for the whole site
+   Use the same file for all pages above.
+   Colors: GraceSeason green: #1a7f2e (main) and #0b6b3a (dark)
+*/
+
+/* ---------- Root & base ---------- */
+:root{
+  --green:#1a7f2e;
+  --green-dark:#0b6b3a;
+  --muted:#7b7b7b;
+  --bg:#fff;
+  --text:#111;
+  --radius:12px;
+  --transition:0.35s ease;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:28px}
+
+/* Loader */
+#loader{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--green-dark);color:#fff;font-weight:700;z-index:9999;font-size:1.15rem;
+  transition:opacity 0.5s ease,visibility 0.5s;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar{
+  display:flex;align-items:center;justify-content:space-between;padding:12px 28px;background:var(--green);color:#fff;position:sticky;top:0;z-index:80;
+}
+.brand-logo{height:56px}
+.navbar nav ul{display:flex;gap:18px;list-style:none;margin:0}
+.navbar .nav-link{color:#fff;font-weight:800}
+.navbar .nav-link:hover{opacity:0.92}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:92vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1);transition:transform 12s ease;}
+.hero-bg.loaded{animation:heroFadeIn 2.3s ease both}
+@keyframes heroFadeIn{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.45))}
+.hero-content{position:relative;z-index:10;text-align:center;padding:48px;color:#fff;max-width:900px}
+.logo-circle{width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;border:4px solid rgba(255,255,255,0.08)}
+.logo-circle img{width:78%;height:78%;object-fit:contain;border-radius:50%}
+.hero-title{font-family:'Playfair Display',serif;font-size:36px;margin:0 0 10px}
+.hero-sub{color:rgba(255,255,255,0.92);margin-bottom:18px}
+.hero-ctas{display:flex;gap:12px;justify-content:center;margin-top:8px}
+.btn{padding:12px 22px;border-radius:999px;font-weight:700;display:inline-block}
+.btn-primary{background:var(--green);color:#fff;border:0}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.12)}
+
+/* hero socials */
+.hero-socials{margin-top:18px;display:flex;gap:10px;justify-content:center}
+.hero-socials a{background:rgba(255,255,255,0.08);padding:8px 12px;border-radius:999px;color:#fff}
+
+/* ---------- Sections & fade-in ---------- */
+.section{padding:48px 0}
+.fade-section{opacity:0;transform:translateY(30px);transition:all .9s ease}
+.fade-section.visible{opacity:1;transform:none}
+
+/* ---------- preview grid (home) ---------- */
+.preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+.preview-card{display:block;border-radius:12px;overflow:hidden;position:relative;background:#111}
+.preview-card img{display:block;width:100%;height:240px;object-fit:cover;transition:transform .6s ease}
+.preview-card:hover img{transform:scale(1.05)}
+.card-meta{padding:12px;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,0.35),transparent);position:absolute;left:12px;bottom:12px;border-radius:8px}
+
+/* ---------- collections grid ---------- */
+.collections-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.collection-card{background:#111;border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.05);box-shadow:0 6px 20px rgba(0,0,0,0.05)}
+.collection-card .card-head{padding:12px 16px;background:linear-gradient(90deg,var(--green),var(--green-dark));color:#fff}
+.collection-card .card-head h2{margin:0;font-size:18px}
+.collection-card .card-body{display:flex;gap:12px;padding:16px;align-items:flex-start;flex-direction:column}
+.card-preview{display:flex;gap:10px;overflow:hidden}
+.card-preview .item-img{width:100%;max-width:33%;height:220px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform .6s ease,opacity .4s}
+.card-preview .item-img:hover{transform:scale(1.04)}
+.card-info{padding-top:8px;color:var(--muted);font-size:14px}
+
+/* price tag (hover-only) on each image */
+.item-img {position:relative}
+.item-img-wrapper{position:relative}
+.price-badge{position:absolute;right:8px;bottom:8px;background:var(--green);color:#000;padding:6px 10px;border-radius:8px;font-weight:800;opacity:0;transform:translateY(6px);transition:all .28s ease}
+.card-preview .item-img:hover + .price-badge{opacity:1;transform:none}
+
+/* alternative: we will attach badge as overlay sibling via JS if needed */
+.card-preview .item-img[data-price]{
+  /* nothing visible by default; badge appears on hover handled in JS/CSS */
+}
+
+/* sizes overlay (appear when hovering over image container) */
+.card-preview .sizes{position:absolute;left:12px;top:12px;background:rgba(255,255,255,0.9);color:#000;padding:6px 8px;border-radius:6px;font-weight:700;opacity:0;transform:translateY(-6px);transition:all .25s ease}
+.card-preview .item-img:hover ~ .sizes, .card-preview .item-img:focus ~ .sizes{opacity:1;transform:none}
+
+/* grid + individual item style for gallery pages */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.gallery .item{position:relative;overflow:hidden;border-radius:10px}
+.gallery img{width:100%;height:320px;object-fit:cover;display:block;transition:transform .6s}
+.gallery .item:hover img{transform:scale(1.04)}
+.gallery .item .price-tag{position:absolute;right:12px;bottom:12px;background:var(--green);color:#000;padding:8px 10px;border-radius:8px;font-weight:800;opacity:0;transition:all .28s}
+.gallery .item:hover .price-tag{opacity:1;transform:none}
+.gallery .item .sizes{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,0.95);padding:6px;border-radius:6px;font-weight:700;opacity:0;transition:all .25s}
+.gallery .item:hover .sizes{opacity:1}
+
+/* ---------- LIGHTBOX (modal) ---------- */
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:1200;padding:28px;gap:20px;flex-direction:column}
+.lb-hidden{display:none}
+.lb-main img{max-width:90vw;max-height:70vh;border-radius:8px}
+.lb-thumbs{display:flex;gap:8px;overflow:auto;padding-top:12px}
+.lb-thumb{width:80px;height:60px;object-fit:cover;border-radius:6px;opacity:0.7;cursor:pointer;border:2px solid transparent}
+.lb-thumb.active{opacity:1;border-color:var(--green)}
+.lb-close{position:absolute;right:18px;top:18px;background:transparent;color:#fff;border:0;font-size:22px;cursor:pointer}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.06);border:0;padding:10px 14px;color:#fff;font-size:20px;border-radius:999px;cursor:pointer}
+#lbPrev{left:18px} #lbNext{right:18px}
+
+/* ---------- Testimonials ---------- */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;align-items:start}
+.test-card{background:#f6f6f6;padding:18px;border-radius:12px;display:flex;gap:12px;align-items:center}
+.circle-md{width:84px;height:84px;border-radius:50%;object-fit:cover}
+
+/* ---------- IG frame ---------- */
+.ig-frame iframe{width:100%;height:360px;border-radius:10px;border:0;}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--green);color:#fff;padding:22px 0;margin-top:40px}
+.site-footer .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 24px}
+
+/* ---------- Scroll-to-top ---------- */
+.scroll-top{position:fixed;right:20px;bottom:22px;width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--green);cursor:pointer;box-shadow:0 10px 20px rgba(0,0,0,0.12);transition:transform .25s,opacity .3s}
+.scroll-top:hover{transform:translateY(-6px);background:var(--green);color:#fff;}
+
+/* small bounce when appear */
+@keyframes popIn { from{transform:scale(.8);opacity:0} to{transform:none;opacity:1} }
+.scroll-top.show{animation:popIn .35s ease both}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .card-preview .item-img{max-width:48%;height:160px}
+  .logo-circle{width:110px;height:110px}
+  .hero-title{font-size:28px}
+}
+@media (max-width:640px){
+  .card-preview .item-img{max-width:100%;height:180px}
+  .collections-grid{grid-template-columns:1fr}
+  .navbar{padding:12px}
+  .brand-logo{height:48px}
+}
+/* ===== Contact & Testimonials ===== */
+.contact-section {
+  padding: 4rem 8%;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.testimonials {
+  background-color: #fafafa;
+  padding: 4rem 8%;
+  text-align: center;
+}
+
+.testimonial-form {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.testimonial-form input,
+.testimonial-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.testimonial-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+/* ===== About Page ===== */
+.about-section {
+  padding: 4rem 10%;
+  line-height: 1.7;
+}
+
+.about-section h2 {
+  color: #0a7a44;
+  margin-bottom: 1rem;
+}
+
+.team-section {
+  background-color: #fafafa;
+  padding: 4rem 8%;
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member {
+  width: 250px;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  margin-top: 0.8rem;
+  color: #0a7a44;
+}
+
+.mission-vision {
+  padding: 4rem 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.mission, .vision {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mission img, .vision img {
+  width: 40%;
+  border-radius: 20px;
+}

@@ -1,0 +1,138 @@
+<!-- index.html
+ NOTE: this file uses image paths like "images/..." (change to assets/... if needed)
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GraceSeason — Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Page loader -->
+  <div id="loader" role="status" aria-live="polite">Grace Season — preparing your experience…</div>
+
+  <!-- NAV -->
+  <header class="navbar" role="banner" aria-label="Main navigation">
+    <div class="nav-left">
+      <img src="images/logo.png" alt="Grace Season logo" class="brand-logo" />
+    </div>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="collections.html" class="nav-link">Collections</a></li>
+        <li><a href="new-arrivals.html" class="nav-link">New Arrivals</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO: full-screen background, fits image, cinematic fade-in -->
+  <section id="hero" class="hero" role="region" aria-label="Intro hero">
+    <div class="hero-bg" style="background-image:url('images/output-onlinepngtools.png');" aria-hidden="true"></div>
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="logo-circle" aria-hidden="true">
+        <img src="images/logo.png" alt="Grace Season logo" />
+      </div>
+
+      <h1 class="hero-title">GraceSeason — Purpose Meets Style</h1>
+      <p class="hero-sub">Faith. Creativity. Contemporary design. Discover the story behind every season.</p>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="collections.html">Explore Collections</a>
+        <a class="btn btn-outline" href="new-arrivals.html">New Arrivals</a>
+      </div>
+
+      <div class="hero-socials" aria-hidden="false" role="navigation" aria-label="Social links">
+        <a href="https://www.instagram.com/grace__season?igsh=MWkxMGlubHd4MXpqdA==" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@grace_season?_t=ZM-90XESWBS6cS&_r=1" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview collections (fade-in sections) -->
+  <main>
+    <section id="featured" class="section fade-section" aria-labelledby="featuredTitle">
+      <div class="container">
+        <h2 id="featuredTitle">Featured Collections</h2>
+        <p class="muted">A quick preview of current highlights</p>
+
+        <div class="preview-grid">
+          <a class="preview-card" href="collections.html#Current_The cross">
+            <img data-src="images/Current_The cross/cross_1.jpg" loading="lazy" alt="The Cross preview" class="lazy">
+            <div class="card-meta">
+              <h3>The Cross</h3>
+              <small>New Arrivals</small>
+            </div>
+          </a>
+
+          <a class="preview-card" href="collections.html#Graceland_1">
+            <img data-src="images/Graceland Collection_1/1stgl_1.jpg" loading="lazy" alt="Graceland preview" class="lazy">
+            <div class="card-meta">
+              <h3>Graceland</h3>
+              <small>Edition I</small>
+            </div>
+          </a>
+
+          <a class="preview-card" href="collections.html#Embroidery Origin">
+            <img data-src="images/Embroidery Origin/emb1.jpg" loading="lazy" alt="Embroidery preview" class="lazy">
+            <div class="card-meta">
+              <h3>Embroidery Origin</h3>
+              <small>Craft & detail</small>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social + Testimonials preview -->
+    <section class="section social-preview fade-section" aria-labelledby="socialTitle">
+      <div class="container two-col">
+        <div class="ig-embed" role="region" aria-label="Instagram preview">
+          <h3 id="socialTitle">Instagram Preview</h3>
+          <!-- Instagram embed fallback: iframe + link -->
+          <div class="ig-frame">
+            <!-- Best-effort embed; many platforms block direct embeds for profile pages — button included as fallback -->
+            <iframe src="https://www.instagram.com/grace__season/embed" title="Grace Season Instagram" loading="lazy"></iframe>
+            <p class="muted">If preview does not load, <a href="https://www.instagram.com/grace__season?igsh=MWkxMGlubHd4MXpqdA==" target="_blank" rel="noopener">open Instagram</a>.</p>
+          </div>
+        </div>
+
+        <!-- Placeholder Testimonials -->
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <img src="images/Logo.png" alt="Customer wearing Gszn" />
+        <p>"Grace Season reminds me daily that faith can be fashionable. Absolutely love the designs!"</p>
+        <h4>- Akua M.</h4>
+      </div>
+      <div class="testimonial-card">
+        <img src="images/Logo.png" alt="Customer photo" />
+        <p>"Every piece tells a story. Gszn connects creativity with conviction beautifully."</p>
+        <h4>- Kwame B.</h4>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer (green background) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>© 2025 Grace Season. All Rights Reserved.</div>
+      <nav aria-label="Footer socials">
+        <a href="https://www.instagram.com/grace__season?igsh=MWkxMGlubHd4MXpqdA==" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@grace_season?_t=ZM-90XESWBS6cS&_r=1" target="_blank" rel="noopener">TikTok</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- scroll-to-top -->
+  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

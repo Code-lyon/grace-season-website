@@ -1,0 +1,80 @@
+<!-- new-arrivals.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New Arrivals — GraceSeason</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left"><img src="images/logo.png" alt="Grace Season logo" class="brand-logo"></div>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="new-arrivals.html" class="active">New Arrivals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section new-arrival fade-section" aria-labelledby="arrivalsTitle">
+      <h1 id="arrivalsTitle">New Arrivals — The Cross</h1>
+      <p class="muted">Fresh drops from the current season.</p>
+
+      <div class="gallery">
+        <div class="item">
+          <img data-src="images/Current_The cross/Cross_1.jpg" alt="Cross Tee" loading="lazy" class="lazy item-img" data-price="₵85">
+          <div class="price-tag">₵250</div>
+          <div class="sizes">Sizes: <span>M</span> <span>L</span> <span>XL</span> <span>XXL</span></div>
+        </div>
+
+        <div class="item">
+          <img data-src="images/Current_The cross/Cross_2.jpg" alt="Cross Hoodie" loading="lazy" class="lazy item-img" data-price="₵220">
+          <div class="price-tag">₵250</div>
+          <div class="sizes">Sizes: <span>M</span> <span>L</span> <span>XL</span> <span>XXL</span></div>
+        </div>
+
+        <div class="item">
+          <img data-src="images/Current_The cross/cross_1.jpg" alt="Cross Jacket" loading="lazy" class="lazy item-img" data-price="₵320">
+          <div class="price-tag">₵250</div>
+          <div class="sizes">Sizes: <span>M</span> <span>L</span> <span>XL</span> <span>XXL</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section social-preview fade-section" aria-labelledby="socialTitle">
+      <div class="container two-col">
+        <div class="ig-embed" role="region" aria-label="Instagram preview">
+          <h3 id="socialTitle">Instagram Preview</h3>
+          <!-- Instagram embed fallback: iframe + link -->
+          <div class="ig-frame">
+            <!-- Best-effort embed; many platforms block direct embeds for profile pages — button included as fallback -->
+            <iframe src="https://www.instagram.com/grace__season/embed" title="Grace Season Instagram" loading="lazy"></iframe>
+            <p class="muted">If preview does not load, <a href="https://www.instagram.com/grace__season?igsh=MWkxMGlubHd4MXpqdA==" target="_blank" rel="noopener">open Instagram</a>.</p>
+          </div>
+        </div>
+
+        <div class="tt-link">
+          <h3>Watch on TikTok</h3>
+          <p class="muted">Short clips, behind-the-scenes and drops.</p>
+          <a class="btn btn-primary" href="https://www.tiktok.com/@grace_season?_t=ZM-90XESWBS6cS&_r=1" target="_blank" rel="noopener">Open TikTok</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2025 Grace Season. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals | Grace Season</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            color: #111;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0a4411;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 50px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            background: #f0f0f0;
+            padding: 3rem 1rem;
+        }
+        .hero h1 {
+            color: #0a4411;
+            font-size: 2.2rem;
+        }
+        .hero p {
+            color: #555;
+        }
+
+        /* Slideshow Section */
+        .slideshow-container {
+            max-width: 1100px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .slide {
+            display: none;
+        }
+        .slide img {
+            width: 100%;
+            border-radius: 20px;
+        }
+        .fade {
+            animation: fade 1.2s ease-in-out;
+        }
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 45%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .collection-info {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+        .collection-info h2 {
+            color: #0a4411;
+        }
+        .collection-info p {
+            color: #555;
+        }
+
+        footer {
+            background-color: #0a4411;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/logo.png" alt="Grace Season Logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="new-arrivals.html" style="text-decoration: underline;">New Arrivals</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>New Arrivals — The Cross Collection ✝️</h1>
+        <p>Faith-inspired pieces redefining street fashion. Discover what’s new this season.</p>
+    </section>
+
+    <div class="slideshow-container">
+
+        <div class="slide fade">
+            <img src="images/Current_The cross/cross_1.jpg" alt="Grace Season The Cross Look 1">
+        </div>
+
+        <div class="slide fade">
+           <img src="images/Current_The cross/cross_2.jpg" alt="Grace Season The Cross Look 1">
+        </div>
+
+        <div class="slide fade">
+            <<img src="images/Current_The cross/Logo_Only.jpg" alt="Grace Season The Cross Look 1">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+
+    <div class="collection-info">
+        <h2>About “The Cross” Collection</h2>
+        <p>
+            “The Cross” collection embodies the central symbol of Christian faith — not as a relic of pain, but a mark of transformation and grace.  
+            Each piece reflects spiritual rebirth, purpose, and identity.  
+            Crafted from high-quality cotton and custom embroidery, this collection redefines faith-based fashion for the modern generation.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Grace Season (Gszn) | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 4000);
+        }
+
+        function plusSlides(n) {
+            slideIndex += n - 1;
+            showSlides();
+        }
+    </script>
+
+</body>
+</html>
